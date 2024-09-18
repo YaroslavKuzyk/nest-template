@@ -31,6 +31,11 @@ export class AuthController {
     private configService: ConfigService,
   ) {}
 
+  @Get('/test')
+  async test(@Res() res: Response) {
+    return res.status(200).json({ message: 'test successfully' });
+  }
+
   @Post('sign-up')
   @UsePipes(new CustomValidationPipe())
   async signUp(@Body() CreateUserDto: CreateUserDto) {

@@ -1,0 +1,23 @@
+module.exports = {
+  apps: [
+    {
+      name: 'nuxt-app',
+      script: 'npm',
+      args: 'run start',
+      cwd: '/path/to/your/nuxt/project',
+      watch: false,
+      env: {
+        NODE_ENV: 'production',
+      },
+    },
+    {
+      name: 'nest-app',
+      script: 'dist/main.js', // Шлях до скомпільованого файлу Nest.js
+      cwd: '/path/to/your/nest/project',
+      watch: false,
+      env: {
+        NODE_ENV: 'production',
+      },
+    },
+  ],
+};
