@@ -59,13 +59,7 @@ export class AuthController {
   async signIn(@Res() res: Response, @Body() LoginUserDto: LoginUserDto) {
     const { token } = await this.authService.signIn(LoginUserDto);
 
-    res.cookie('token', token, {
-      httpOnly: true,
-      secure: false,
-      maxAge: 3600000,
-    });
-
-    return res.status(200).json({ message: 'Signed in successfully' });
+    return res.status(200).json({ token, message: 'Signed in successfully' });
   }
 
   @Get('sign-out')
